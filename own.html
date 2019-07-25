@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="myAjax.js"></script>
+</head>
+<body>
+    <!-- <form action="own.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="upFile"><br>
+        <input type="submit" value="上传"><br>
+    </form>-->
+    <button>发送请求</button> 
+    <script>
+    // $('').html(decodeURIComponent($(this).serialize()))
+    //  $('form').submit(function(e){
+    //      e.preventDefault//阻止页面刷新
+    //      $.ajax({
+    //          type:"post",
+    //          url:"own.php",
+    //         //  serialize表单序列化  //不管表单有多少个数据，就直接给你传过来 会只能指定表单内的所有元素
+    //         //  data:$('form').serialize(),
+            
+    //          success:function(res){
+    //              console.log(res)
+    //          }
+    //      })
+    //  })
+    // global:flase; //不触发全局事件
+    // var login = {username:"123",password:"124"};
+    // console.log($.param(login))//键值对转换
+    var oBtn = document.getElementsByTagName('button')[0];
+        oBtn.onclick = function(){
+            console.log(1)
+            //第一个参数是地址
+            //第二个参数是告诉它请求成功之后产生什么回调
+            //第三个参数是告诉它请求失败之后产生什么回调
+            ajax("own.php",{
+                "userName":"wy",
+                "userPwd":"123456"
+            } //新增一个参数，超时时间为3000毫秒，我会等待3秒钟的时间，3秒中还没有等到请求，那就自动终止
+            ,function(xhr){
+                //如果成功则返回数据
+                console.log(xhr.responseText)
+                alert(xhr.responseText)
+            },function(xhr){
+                alert('请求失败')
+                console.log('请求失败')
+            })
+        }
+     
+   
+
+       
+    </script>
+</body>
+</html>
